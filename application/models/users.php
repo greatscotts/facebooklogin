@@ -9,8 +9,8 @@ public function is_member($facebook_user){
 
 
 
-$this->db->where('email',$facebook_user['email'] );
-$query =$this->db->get('users');
+$this->db->where("email",$facebook_user["email"] );
+$query =$this->db->get("users");
 
 if ($query->num_rows() == 1) {
 
@@ -34,7 +34,10 @@ $data = array (
 
 'is_logged_in' => 1,
 'email' => $facebook_user['email'],
-'name' => $facebook_user['name']
+'name' => $facebook_user['name'],
+'facebook_id' => $facebook_user['id']
+
+
 	);
 $this->session->set_userdata($data);
 
